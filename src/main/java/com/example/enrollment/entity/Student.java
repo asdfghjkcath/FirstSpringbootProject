@@ -1,8 +1,9 @@
-package com.example.enrollment;
+package com.example.enrollment.entity;
 
 import java.time.LocalDate;
 
 public class Student {
+    private Integer id;
     private String firstName;
     private String middleName;
     private String lastName;
