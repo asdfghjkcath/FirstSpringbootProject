@@ -10,6 +10,8 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class StudentRepositoryImpl implements StudentRepository {
 
@@ -34,6 +36,30 @@ public class StudentRepositoryImpl implements StudentRepository {
     }
 
     @Override
+    public void updateStudentBirthdayById(String birthdate, Integer student_id) {
+        String sql = "UPDATE students SET s_birthdate = :birthdate WHERE student_id = :id";
+
+        MapSqlParameterSource parameterSource = new MapSqlParameterSource();
+        parameterSource.addValue("birthdate", birthdate);
+        parameterSource.addValue("id", student_id);
+
+        namedParameterJdbcTemplate.update(sql, parameterSource);
+    }
+
+    @Override
+    public List<Student> getAllStudentsByFirstName(String firstName) {
+        String sql = "SELECT * FROM students WHERE s_first_name LIKE :firstName ";
+
+        MapSqlParameterSource parameterSource = new MapSqlParameterSource();
+        parameterSource.addValue("firstName", "%" + firstName + "%");
+
+        List<Student> studentResult = namedParameterJdbcTemplate.query(sql, parameterSource, studentRowMapper());
+
+        return studentResult;
+
+    }
+
+    @Override
     public Student getStudent(Integer id) {
         String sql = "SELECT s_first_name, s_last_name, s_middle_name, s_address, s_birthdate from students \n" +
                 "WHERE student_id = :id";
@@ -53,6 +79,8 @@ public class StudentRepositoryImpl implements StudentRepository {
         return namedParameterJdbcTemplate.queryForObject(sql, parameterSource, studentRowMapper());
 
     }
+
+
 
 
     private RowMapper<Student> studentRowMapper() {
