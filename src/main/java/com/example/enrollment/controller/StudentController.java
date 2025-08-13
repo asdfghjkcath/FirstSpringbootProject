@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.List;
 
 @RestController
 @RequestMapping("/student")
@@ -19,11 +20,19 @@ public class StudentController {
 
     @GetMapping
     public Student getStudent(@RequestParam Integer id) {
-
-
         return studentRepository.getStudent(id);
 
     }
+
+    @GetMapping("/first-name")
+    public Student getStudentByFirstName(@RequestParam String firstName) {
+        return studentRepository.getStudentByFirstName(firstName);
+
+
+    }
+
+
+
     @PostMapping
     public Integer saveStudent(@RequestBody Student student) {
 
@@ -31,6 +40,17 @@ public class StudentController {
 
 
         return studentRepository.saveStudent(student);
+    }
+
+    @PutMapping
+    public String updateStudent(@RequestParam String birthdate, @RequestParam Integer id){
+        studentRepository.updateStudentBirthdayById(birthdate, id);
+        return "Successfully Updated";
+    }
+
+    @GetMapping("/find")
+    public List<Student> getAllStudentByFirstName(@RequestParam String firstName){
+        return studentRepository.getAllStudentsByFirstName(firstName);
     }
 
 }
