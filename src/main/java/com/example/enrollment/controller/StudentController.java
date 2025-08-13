@@ -19,11 +19,19 @@ public class StudentController {
 
     @GetMapping
     public Student getStudent(@RequestParam Integer id) {
-
-
         return studentRepository.getStudent(id);
 
     }
+
+    @GetMapping("/first-name")
+    public Student getStudentByFirstName(@RequestParam String firstName) {
+        return studentRepository.getStudentByFirstName(firstName);
+
+
+    }
+
+
+
     @PostMapping
     public Integer saveStudent(@RequestBody Student student) {
 

@@ -7,4 +7,6 @@ public interface StudentRepository {
 
     Student getStudent(Integer id);
 
+    Student getStudentByFirstName(String firstName);
+
 }

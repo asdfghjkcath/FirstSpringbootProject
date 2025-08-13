@@ -37,11 +37,21 @@ public class StudentRepositoryImpl implements StudentRepository {
     public Student getStudent(Integer id) {
         String sql = "SELECT s_first_name, s_last_name, s_middle_name, s_address, s_birthdate from students \n" +
                 "WHERE student_id = :id";
-
+   
         MapSqlParameterSource parameterSource = new MapSqlParameterSource();
         parameterSource.addValue("id", id);
 
         return namedParameterJdbcTemplate.queryForObject(sql, parameterSource, studentRowMapper());
+    }
+    @Override
+    public Student getStudentByFirstName(String firstName) {
+        String sql = "SELECT * FROM students WHERE s_first_name = :firstName";
+
+        MapSqlParameterSource parameterSource = new MapSqlParameterSource();
+        parameterSource.addValue("firstName", firstName);
+
+        return namedParameterJdbcTemplate.queryForObject(sql, parameterSource, studentRowMapper());
+
     }
 
 
