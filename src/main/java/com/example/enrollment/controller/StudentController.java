@@ -1,7 +1,6 @@
 package com.example.enrollment.controller;
 
 import com.example.enrollment.entity.Student;
-import com.example.enrollment.repository.StudentRepository;
 import com.example.enrollment.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,9 +13,6 @@ import java.util.List;
 @RequestMapping("/student")
 public class StudentController {
 
-
-    @Autowired
-    private StudentRepository studentRepository;
 
     @Autowired
     private StudentService studentService;

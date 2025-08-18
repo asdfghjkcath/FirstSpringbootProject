@@ -26,7 +26,7 @@ public class StudentService {
 
     public Integer saveStudent(Student student) {
         int age = Period.between(student.getBirthDate(), LocalDate.now()).getYears();
-        student.setAge(age); // Optional: if your Student entity has an `age` field
+        student.setAge(age);
         return studentRepository.saveStudent(student);
     }
 
