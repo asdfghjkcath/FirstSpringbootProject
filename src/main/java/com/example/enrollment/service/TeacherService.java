@@ -5,6 +5,8 @@ import com.example.enrollment.repository.impl.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TeacherService {
 
@@ -17,5 +19,13 @@ public class TeacherService {
 
     public Teacher getTeacherByFName(String teacherFirstName) {
         return teacherRepository.getTeacherByFName(teacherFirstName);
+    }
+
+    public Teacher getTeacherByLName(String teacherLastName) {
+        return teacherRepository.getTeacherByLName(teacherLastName);
+    }
+
+    public List<Teacher> getTeacherByMajor(String teacherMajor) {
+        return teacherRepository.getTeacherByMajor(teacherMajor);
     }
 }

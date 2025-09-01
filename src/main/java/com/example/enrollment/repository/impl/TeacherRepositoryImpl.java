@@ -9,6 +9,8 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class TeacherRepositoryImpl implements TeacherRepository {
 
@@ -51,6 +53,26 @@ public class TeacherRepositoryImpl implements TeacherRepository {
         parameterSource.addValue("teacherFirstName", teacherFirstName);
 
         return namedParameterJdbcTemplate.queryForObject(sql, parameterSource, teacherRowMapper());
+    }
+
+    @Override
+    public Teacher getTeacherByLName(String teacherLastName) {
+        String sql = "SELECT * FROM teacher WHERE teach_surname = :teacherLastName";
+
+        MapSqlParameterSource parameterSource = new MapSqlParameterSource();
+        parameterSource.addValue("teacherLastName", teacherLastName);
+
+        return namedParameterJdbcTemplate.queryForObject(sql, parameterSource, teacherRowMapper());
+    }
+
+    public List<Teacher> getTeacherByMajor(String teacherMajor) {
+        String sql = "SELECT * FROM teacher WHERE teacher_major = :teacherMajor";
+
+        MapSqlParameterSource parameterSource = new MapSqlParameterSource();
+        parameterSource.addValue("teacherMajor", teacherMajor);
+
+        List<Teacher> teacherResult = namedParameterJdbcTemplate.query(sql, parameterSource, teacherRowMapper());
+        return teacherResult;
     }
 
     private RowMapper<Teacher> teacherRowMapper() {
