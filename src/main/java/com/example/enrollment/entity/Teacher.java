@@ -46,4 +46,5 @@ public class Teacher {
     public void setTeacherMajor(String teacherMajor) {
         this.teacherMajor = teacherMajor;
     }
+
 }
