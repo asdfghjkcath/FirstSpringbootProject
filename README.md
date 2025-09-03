@@ -3,6 +3,7 @@
 
 | Date          | Task                                              |
 |---------------|---------------------------------------------------|
+| Sept 3, 2025  | resolved comments on pr                           |
 | Sept. 1, 2025 | updated the teacher queries                       |
 | Aug. 29, 2025 | created teacher controller, service & repository  |
 | Aug. 21, 2025 | create subject query                              |
