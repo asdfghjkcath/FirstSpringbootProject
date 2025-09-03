@@ -9,9 +9,9 @@ public interface TeacherRepository {
 
     Teacher getTeacher(Integer id);
 
-    Teacher getTeacherByFName(String teacherFirstName);
+    Teacher getTeacherByFirstName(String teacherFirstName);
 
-    Teacher getTeacherByLName(String teacherLastName);
+    Teacher getTeacherByLastName(String teacherLastName);
 
     List<Teacher> getTeacherByMajor(String teacherMajor);
 

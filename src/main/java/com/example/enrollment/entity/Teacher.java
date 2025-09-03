@@ -47,5 +47,4 @@ public class Teacher {
         this.teacherMajor = teacherMajor;
     }
 
-
 }

@@ -46,7 +46,7 @@ public class TeacherRepositoryImpl implements TeacherRepository {
     }
 
     @Override
-    public Teacher getTeacherByFName(String teacherFirstName) {
+    public Teacher getTeacherByFirstName(String teacherFirstName) {
         String sql = "SELECT * FROM teacher WHERE teacher_name = :teacherFirstName";
 
         MapSqlParameterSource parameterSource = new MapSqlParameterSource();
@@ -56,7 +56,7 @@ public class TeacherRepositoryImpl implements TeacherRepository {
     }
 
     @Override
-    public Teacher getTeacherByLName(String teacherLastName) {
+    public Teacher getTeacherByLastName(String teacherLastName) {
         String sql = "SELECT * FROM teacher WHERE teach_surname = :teacherLastName";
 
         MapSqlParameterSource parameterSource = new MapSqlParameterSource();

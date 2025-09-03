@@ -17,12 +17,12 @@ public class TeacherService {
         return teacherRepository.getTeacher(teacherId);
     }
 
-    public Teacher getTeacherByFName(String teacherFirstName) {
-        return teacherRepository.getTeacherByFName(teacherFirstName);
+    public Teacher getTeacherByFirstName(String teacherFirstName) {
+        return teacherRepository.getTeacherByFirstName(teacherFirstName);
     }
 
-    public Teacher getTeacherByLName(String teacherLastName) {
-        return teacherRepository.getTeacherByLName(teacherLastName);
+    public Teacher getTeacherByLastName(String teacherLastName) {
+        return teacherRepository.getTeacherByLastName(teacherLastName);
     }
 
     public List<Teacher> getTeacherByMajor(String teacherMajor) {
